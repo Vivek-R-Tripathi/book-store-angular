@@ -8,6 +8,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { AuthModule } from './auth/auth.module';
 import { UserModule } from './user/user.module';
+import { PublicModule } from './public/public.module';
 
 
 
@@ -22,7 +23,8 @@ import { UserModule } from './user/user.module';
     BrowserModule,
     AppRoutingModule,
     AuthModule,
-    UserModule
+    UserModule,
+    PublicModule
   ],
 
   providers: [],
