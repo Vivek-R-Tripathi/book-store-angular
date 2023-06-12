@@ -12,7 +12,7 @@ const routes= [{
     { path: 'all-book', component: AllBooksComponent },
     // http://localhost:4200/public/book-details/1/auther/3
     // Paramter routing
-    { path: 'book-details/:id/auther/:autherId', component: BookDetailsComponent }
+    { path: 'book-details/:id', component: BookDetailsComponent }
   ]
 }];
 
