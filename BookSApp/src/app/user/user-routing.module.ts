@@ -6,11 +6,8 @@ import { AddBookComponent } from './components/add-book/add-book.component';
 
 const routes: Routes = [
 
-  {
-    path: 'user/:userId', component: UsersComponent, children:
-     [{ path: 'delete-book', component: DeleteBookComponent },
-      { path: 'add-book', component: AddBookComponent }]
-  }
+  { path: 'delete-book', component: DeleteBookComponent },
+      { path: 'add-book', component: AddBookComponent }
 ];
 
 @NgModule({

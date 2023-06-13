@@ -24,9 +24,9 @@ import { SharedModule } from './shared/shared.module';
   //Here Order Matters
   imports: [
     BrowserModule,
-    AuthModule,
-    UserModule,
-    PublicModule,
+    // AuthModule,
+    // UserModule,
+    // PublicModule,
     SharedModule,
     AppRoutingModule
   ],
