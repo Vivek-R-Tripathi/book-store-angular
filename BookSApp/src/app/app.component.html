@@ -4,8 +4,12 @@
 
 <div>
     <a routerLink="about-us">AboutUs</a>
-    <a routerLink="auth/login">Login</a>
-    <a [routerLink]="['public/book-details',2]">Public</a>
+    <a routerLink="auth/login" [queryParams]="{name:'vivek', email:'sample@gmail.com'}">Login</a>
+    <a routerLink="public/all-book">AllBooks</a>
+    <div>
+        <a [routerLink]="['public/book-details',100]">From main page</a>
+    </div>
+    <!-- <a [routerLink]="['public/book-details',2]">Public</a> -->
 </div>
 
 <div>
