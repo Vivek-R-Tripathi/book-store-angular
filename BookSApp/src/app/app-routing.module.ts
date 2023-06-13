@@ -3,12 +3,16 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { HowItWorksComponent } from './how-it-works/how-it-works.component';
-import { LoginComponent } from './auth/components/login/login.component';
-import { AuthComponent } from './auth/auth/auth.component';
-import { SignupComponent } from './auth/components/signup/signup.component';
+import { NotfoundPageComponent } from './shared/notfound-page.component';
+
 
 const routes: Routes = [{ path: 'about-us', component: AboutUsComponent },
 { path: 'how-it-works', component: HowItWorksComponent },
+
+// Wild Card Route when no exact path matches with the route then execute wild card routes
+// and open whiich ever component you want to use
+//Also the app-routine declartion order matters
+{ path: '**', component: NotfoundPageComponent }
 ];
 
 
