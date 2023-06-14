@@ -13,6 +13,7 @@ import { SharedModule } from './shared/shared.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
+import { ToolbarComponent } from './shared/components/toolbar/toolbar.component';
 
 
 @NgModule({
@@ -25,17 +26,13 @@ import {MatIconModule} from '@angular/material/icon';
   //Here Order Matters
   imports: [
     BrowserModule,
-    // AuthModule,
-    // UserModule,
-    // PublicModule,
     SharedModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatToolbarModule,
     MatIconModule
-    
   ],
-
+ 
   providers: [],
   bootstrap: [AppComponent]
 })
