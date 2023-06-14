@@ -38,12 +38,12 @@ constructor(private routes: ActivatedRoute, private router:Router) {
       // if some part of para meter are fixed then used as id 
       // if not then we can use in this ''
 
-    //this.router.navigate(['/public/book-details',id]);
+    //this.router.navigate(['/book/book-details',id]);
 
     //with query param
-    this.router.navigate(['/public/book-details',id], {queryParams:{name:'vivek', email:'sample@gmail.com'}});
+    this.router.navigate(['/book/book-details',id], {queryParams:{name:'vivek', email:'sample@gmail.com'}});
 
-    // --output =http://localhost:4200/public/book-details/22?name=vivek
+    // --output =http://localhost:4200/book/book-details/22?name=vivek
   
     }
 

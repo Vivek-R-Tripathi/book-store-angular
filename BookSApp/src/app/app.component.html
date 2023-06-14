@@ -5,13 +5,14 @@
 <div>
     <a routerLink="about-us">AboutUs</a>
     <a routerLink="auth/login" [queryParams]="{name:'vivek', email:'sample@gmail.com'}">Login</a>
-    <a routerLink="public/all-book">AllBooks</a>
+    <a routerLink="book/all-book">AllBooks</a>
     <div>
-        <a [routerLink]="['public/book-details',100]">From main page</a>
+        <a [routerLink]="['book/book-details',100]">From main page</a>
     </div>
-    <!-- <a [routerLink]="['public/book-details',2]">Public</a> -->
+    <!-- <a [routerLink]="['book/book-details',2]">Book</a> -->
 </div>
 <app-toolbar></app-toolbar>
+
 <!-- <p>
     <mat-toolbar>
       <span>My Application</span>
@@ -41,3 +42,5 @@
 <div>
     <h1>Footer</h1>
 </div>
+
+<app-footer></app-footer>
