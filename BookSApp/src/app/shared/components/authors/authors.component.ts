@@ -7,5 +7,11 @@ import { Component, Input } from '@angular/core';
 })
 export class AuthorsComponent {
 
-  @Input() data: string | undefined;
+  public data: number | undefined
+
+  public setData(value:number):void{
+   this.data=value;
+  }
+
+  // @Input() data: string | undefined;
 }
