@@ -7,20 +7,16 @@ import {MatIconModule} from '@angular/material/icon';
 import { MaterialModule } from './material.module';
 import { FooterComponent } from './components/footer/footer.component';
 import { RouterModule } from '@angular/router';
+import { AuthorsComponent } from './components/authors/authors.component';
 
 
 @NgModule({
   declarations: [
-    NotfoundPageComponent,
-    ToolbarComponent,
-    FooterComponent,
-   
+    NotfoundPageComponent,ToolbarComponent,FooterComponent,AuthorsComponent  
   ],
   imports: [
-    CommonModule,    
-    MaterialModule,
-    RouterModule
+    CommonModule, MaterialModule, RouterModule
   ],
-  exports:[ToolbarComponent,FooterComponent,MaterialModule]
+  exports:[ToolbarComponent, FooterComponent, MaterialModule, AuthorsComponent]
 })
 export class SharedModule { }

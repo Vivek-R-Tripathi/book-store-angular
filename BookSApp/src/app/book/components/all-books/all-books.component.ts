@@ -9,7 +9,7 @@ import { BookModel } from '../../BookModel/book.Model';
 })
 export class AllBooksComponent implements OnInit {
 
-  bookDetails:BookModel[] =[];
+ public bookDetails:BookModel[] =[];
   /**
    *
    */

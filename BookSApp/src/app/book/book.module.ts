@@ -6,6 +6,8 @@ import { BookRoutingModule } from './book-routing.module';
 import { BookComponent } from './book.component';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from '../shared/shared.module';
+import { RecentbookComponent } from './components/recentbook/recentbook.component';
+import { BookCardComponent } from './components/book-card/book-card.component';
 
 
 
@@ -13,7 +15,9 @@ import { SharedModule } from '../shared/shared.module';
   declarations: [
     AllBooksComponent,
     BookDetailsComponent,
-    BookComponent
+    BookComponent,
+    RecentbookComponent,
+    BookCardComponent
   ],
   imports: [
     CommonModule,
