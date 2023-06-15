@@ -109,7 +109,7 @@ export class BookService {  //export means it shd be ready to use for import in 
     return [
     {
       "id":6,
-      "author": "Unknown",
+      "author": "Devansh Tripathi",
       "country": "India/Iran/Iraq/Egypt/Tajikistan",
       "imageLink": "images/one-thousand-and-one-nights.jpg",
       "language": "Arabic",
@@ -123,7 +123,7 @@ export class BookService {  //export means it shd be ready to use for import in 
      }
     }, {
       "id": 2,
-      "author": "Hans Christian Andersen",
+      "author": "Chunnu Tripathi",
       "country": "Denmark",
       "imageLink": "images/fairy-tales.jpg",
       "language": "Danish",

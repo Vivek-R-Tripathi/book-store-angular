@@ -1,3 +1,4 @@
 <p>home works!</p>
-<app-authors></app-authors>
-<button mat-raised-button #counterBtn>Counter</button>
+<app-authors (data1)="childData($event)"></app-authors>
+
+<p>Data Coming from Child: {{name}}</p>

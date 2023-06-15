@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-authors',
@@ -6,24 +6,17 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./authors.component.scss']
 })
 export class AuthorsComponent {
+   
+  //This data i am sending 
+  //first step : Implement child comp @output and event emitter
+  //Now go to pareent (type of @Output)=(receive data in event parameter)
+  name:string= "vivek tripathi" 
 
-  public data: number | undefined
+  @Output() data1 = new EventEmitter<string>();
 
-
-
-  public fullName !: string;
-
-  public name1 !: string;
-
-  public setData(value:number):void{
-   this.data=value;
+  btn_Click(): void {
+  this.data1.emit(this.name);
   }
 
-  public fullNames(value:string):void{
-     this.fullName=value
    }
 
-  
-
-  // @Input() data: string | undefined;
-}
