@@ -5,6 +5,7 @@ import { BookDetailsComponent } from './components/book-details/book-details.com
 import { BookRoutingModule } from './book-routing.module';
 import { BookComponent } from './book.component';
 import { RouterModule } from '@angular/router';
+import { SharedModule } from '../shared/shared.module';
 
 
 
@@ -17,7 +18,7 @@ import { RouterModule } from '@angular/router';
   imports: [
     CommonModule,
     RouterModule,
-    BookRoutingModule
+    BookRoutingModule,SharedModule
   ]
 })
 export class BookModule { }
