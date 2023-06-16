@@ -1,4 +1,3 @@
 <p>home works!</p>
-<app-authors (data1)="childData($event)"></app-authors>
-
-<p>Data Coming from Child: {{name}}</p>
+<app-authors [count]="count"></app-authors>
+<button (click)="incounter()">SendDataToChild</button>
