@@ -1,4 +1,4 @@
-import {Component, OnChanges, OnInit} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import { AuthorModel } from 'src/app/shared/components/AuthorModel/Author.model';
 
 @Component({
@@ -6,14 +6,28 @@ import { AuthorModel } from 'src/app/shared/components/AuthorModel/Author.model'
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit{
+export class HomeComponent implements OnInit, AfterViewInit{
+
+  @ViewChild('btn_counter')
+  btnAfter!: ElementRef;
+  public address:string ='India';
+
+  public namee: string ='';
 
   constructor() {
     console.log("This is inside Parent Constructor");
     
   }
+
+  //It will load the data after view getting loaded
+  ngAfterViewInit(): void {
+    console.log(`${this.btnAfter}after view init call takes place`);
+    //Here it will updated the name of button from hardcoded to UPDAEEEEEEEEEEE after view getting loaded
+     this.btnAfter.nativeElement.innerHTML ='UPDAEEEEEEEEEEE';
+  }
   ngOnInit(): void {
     console.log("This is inside Parent NG-OnInit");
+    
   }
   
   public authModel:AuthorModel = {AuthorId:23,AuthorName:"Vivek Ram Tripathi"}
@@ -25,7 +39,9 @@ export class HomeComponent implements OnInit{
     //we r up updating existing reference of an object the ng on changes will not detect this changes 
     this.authModel.AuthorId = 34;
     //Now in this sceanrio we are again newly instanciate the AuthModel so it ngOnChnage will detect their value
-   // this.authModel ={AuthorId:667,AuthorName:"Lalu"}
+   // this.authModel ={AuthorId:667,AuthorName:"Lalu"}\\
+
+   this.address =this.address + this.count;
   }
 
 }

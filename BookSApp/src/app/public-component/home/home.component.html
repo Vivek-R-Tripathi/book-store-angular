@@ -1,3 +1,13 @@
 <p>home works!</p>
-<app-authors [count]="count" [authModel]="authModel"></app-authors>
+<div class="parent_class">
+ <!-- <app-authors [count]="count" [authModel]="authModel"><h1>Dynamic data from parent</h1></app-authors> -->
+<button (click)="incounter()" #btn_counter>SendDataToChild</button> 
+
+
+
+<!-- <hr><br> -->
+<app-authors [count]="count" [authModel]="authModel"><button>
+    <app-author-address [address]="'India333'"></app-author-address>
+</button></app-authors>
 <button (click)="incounter()">SendDataToChild</button>
+</div>
