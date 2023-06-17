@@ -1,4 +1,4 @@
-import { AfterContentChecked, AfterContentInit, AfterViewChecked, Component, ContentChild, DoCheck, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
+import { AfterContentChecked, AfterContentInit, AfterViewChecked, Component, ContentChild, DoCheck, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output, SimpleChanges } from '@angular/core';
 import { AuthorModel } from '../AuthorModel/Author.model';
 import { AuthorAddressComponent } from '../author-address/author-address.component';
 
@@ -7,7 +7,7 @@ import { AuthorAddressComponent } from '../author-address/author-address.compone
   templateUrl: './authors.component.html',
   styleUrls: ['./authors.component.scss']
 })
-export class AuthorsComponent implements OnChanges, OnInit, DoCheck,AfterContentInit{
+export class AuthorsComponent implements OnChanges, OnInit, DoCheck,AfterContentInit, OnDestroy{
  
   /**
    *
@@ -17,9 +17,10 @@ export class AuthorsComponent implements OnChanges, OnInit, DoCheck,AfterContent
   constructor() {
     console.log("This is inside Child Constructor");
   }
+  ngOnDestroy(): void {
+   console.log('destroy the Author component');
+  }
  
-
-
   // this will run every time the ng-content value get updated
   ngAfterContentChecked(): void { 
   console.log("Inside the content checked "+ this.authAddress?.address);

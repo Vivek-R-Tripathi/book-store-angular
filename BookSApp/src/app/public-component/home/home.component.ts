@@ -1,4 +1,4 @@
-import {AfterViewChecked, AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {AfterViewChecked, AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import { AuthorModel } from 'src/app/shared/components/AuthorModel/Author.model';
 import { AuthorsComponent } from 'src/app/shared/components/authors/authors.component';
 
@@ -7,7 +7,7 @@ import { AuthorsComponent } from 'src/app/shared/components/authors/authors.comp
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit, AfterViewInit,AfterViewChecked{
+export class HomeComponent implements OnInit, AfterViewInit,AfterViewChecked, OnDestroy{
 
   @ViewChild('btn_counter')
   btnAfter!: ElementRef;
@@ -17,12 +17,18 @@ export class HomeComponent implements OnInit, AfterViewInit,AfterViewChecked{
 
   public address:string ='India';
 
-
+  public time:any;
   public namee: string ='';
 
   constructor() {
     console.log("This is inside Parent Constructor");
     
+  }
+  //we can use this method in oder to unsubscribe an observables and call timeout method in it
+  ngOnDestroy(): void {
+    //moving other component it destroy the object of the first two component
+    clearInterval(this.time);
+    console.log('destroy the Home component');
   }
 
   //it will detect change from child after the view 
@@ -37,10 +43,18 @@ export class HomeComponent implements OnInit, AfterViewInit,AfterViewChecked{
   }
   ngOnInit(): void {
     console.log('This is inside Parent NG-OnInit');
+    this.timer();
   }
   
   public authModel:AuthorModel = {AuthorId:23,AuthorName:"Vivek Ram Tripathi"}
   count:number = 0;
+
+  timer():void{
+    this.time=setInterval(()=>{
+      this.count++;
+      console.log(this.count)
+    },1000);
+  }
 
   // When there is change in count i.e, the input property the onchange method got execute with 3 values current, previous 
   public incounter():void {
@@ -51,6 +65,7 @@ export class HomeComponent implements OnInit, AfterViewInit,AfterViewChecked{
    // this.authModel ={AuthorId:667,AuthorName:"Lalu"}\\
 
    this.address =this.address + this.count;
+   
   }
 
 }
