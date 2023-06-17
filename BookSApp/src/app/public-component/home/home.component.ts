@@ -1,16 +1,22 @@
-import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {AfterViewChecked, AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import { AuthorModel } from 'src/app/shared/components/AuthorModel/Author.model';
+import { AuthorsComponent } from 'src/app/shared/components/authors/authors.component';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit, AfterViewInit{
+export class HomeComponent implements OnInit, AfterViewInit,AfterViewChecked{
 
   @ViewChild('btn_counter')
   btnAfter!: ElementRef;
+
+  @ViewChild(AuthorsComponent)
+  authcomp!: AuthorsComponent;
+
   public address:string ='India';
+
 
   public namee: string ='';
 
@@ -19,15 +25,18 @@ export class HomeComponent implements OnInit, AfterViewInit{
     
   }
 
+  //it will detect change from child after the view 
+  ngAfterViewChecked(): void {
+    console.log(this.authcomp.count1);
+  }
   //It will load the data after view getting loaded
   ngAfterViewInit(): void {
-    console.log(`${this.btnAfter}after view init call takes place`);
+    console.log(this.btnAfter + 'after view init call takes place');
     //Here it will updated the name of button from hardcoded to UPDAEEEEEEEEEEE after view getting loaded
      this.btnAfter.nativeElement.innerHTML ='UPDAEEEEEEEEEEE';
   }
   ngOnInit(): void {
-    console.log("This is inside Parent NG-OnInit");
-    
+    console.log('This is inside Parent NG-OnInit');
   }
   
   public authModel:AuthorModel = {AuthorId:23,AuthorName:"Vivek Ram Tripathi"}

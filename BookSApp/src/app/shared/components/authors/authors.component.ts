@@ -1,4 +1,4 @@
-import { AfterContentChecked, AfterContentInit, Component, ContentChild, DoCheck, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
+import { AfterContentChecked, AfterContentInit, AfterViewChecked, Component, ContentChild, DoCheck, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { AuthorModel } from '../AuthorModel/Author.model';
 import { AuthorAddressComponent } from '../author-address/author-address.component';
 
@@ -7,14 +7,17 @@ import { AuthorAddressComponent } from '../author-address/author-address.compone
   templateUrl: './authors.component.html',
   styleUrls: ['./authors.component.scss']
 })
-export class AuthorsComponent implements OnChanges, OnInit, DoCheck,AfterContentInit,AfterContentChecked {
+export class AuthorsComponent implements OnChanges, OnInit, DoCheck,AfterContentInit{
  
   /**
    *
    */
+
+  public count1:number = 0;
   constructor() {
     console.log("This is inside Child Constructor");
   }
+ 
 
 
   // this will run every time the ng-content value get updated
@@ -43,11 +46,11 @@ export class AuthorsComponent implements OnChanges, OnInit, DoCheck,AfterContent
   authModel!: AuthorModel;
 
   ngOnChanges(changes: SimpleChanges): void {
-
     console.log(changes);
-
   }
-   
 
-   }
+  Clickme(): void {
+    this.count1++;
+  }
+  }
 
