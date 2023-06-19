@@ -1,16 +1,16 @@
 import { PriceModel } from "./price.Model";
 
-export interface BookModel
+export class BookModel
 {
-    id:number,
-    author:string,
-    country: string,
-    imageLink:string,
-    language:string,
-    link: string,
-    pages:number,
-    title:string,
-    year:number,
-    price: PriceModel
+   public id !:number;
+   public author!:string;
+   public country !: string;
+   public imageLink!:string;
+   public language!:string;
+   public link!: string;
+   public pages!:number;
+   public title !:string;
+   public year !:number
+   public price !: PriceModel
     
 }

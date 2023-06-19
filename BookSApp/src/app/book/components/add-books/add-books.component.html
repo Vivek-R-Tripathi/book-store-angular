@@ -1,0 +1,43 @@
+<h1>Add new book</h1>
+<form #myForm ="ngForm" (ngSubmit)="addBook(myForm.value)" class="form_class">
+    <mat-form-field appearance="fill">
+        <mat-label>Title</mat-label>
+        <input matInput name="title" placeholder="Title" ngModel>
+        <mat-icon matSuffix>title</mat-icon>
+        <mat-hint>Hint</mat-hint>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Author Name</mat-label>
+        <input matInput type="text" name="author" placeholder="Author" ngModel>
+        <mat-icon matSuffix>badge</mat-icon>
+        <mat-hint>Hint</mat-hint>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Page Number</mat-label>
+        <input matInput type="number" name="pages" placeholder="Book Page" ngModel>
+        <mat-icon matSuffix>123</mat-icon>
+        <mat-hint>Hint</mat-hint>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Language</mat-label>
+        <input matInput type="text" name="language" placeholder="Language" ngModel>
+        <mat-icon matSuffix>language</mat-icon>
+        <mat-hint>Hint</mat-hint>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Price</mat-label>
+        <input matInput type="number" name="price" placeholder="price" ngModel>
+        <mat-icon matSuffix>attach_money</mat-icon>
+        <mat-hint>Hint</mat-hint>
+      </mat-form-field>
+      <button type="submit" mat-raised-button color="primary">Save</button>
+    <!-- <input type="text" name="title" placeholder="Title" ngModel><br><br>
+    <input type="text" name="author" placeholder="Author" ngModel><br><br>
+    <input type="number" name="pages" placeholder="Book Page" ngModel><br><br>
+    <input type="text" name="language" placeholder="Language" ngModel><br><br>
+    <input type="number" name="price" placeholder="price" ngModel><br><br>
+    <button type="submit">Save</button> -->
+
+   <!-- <h1>{{myForm.value| json}}</h1> -->
+</form>
+
