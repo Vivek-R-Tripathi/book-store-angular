@@ -26,18 +26,23 @@
       </mat-form-field>
       <mat-form-field appearance="fill">
         <mat-label>Price</mat-label>
-        <input matInput type="number" name="price" placeholder="price" ngModel>
+        <mat-select name="price" placeholder="Language" ngModel>
+            <mat-option value="100">$ 100</mat-option>
+            <mat-option value="200">$ 200</mat-option>
+            <mat-option value="300">$ 300</mat-option>
+          </mat-select>
+        <!-- <input matInput type="number" name="price" placeholder="price" ngModel> -->
         <mat-icon matSuffix>attach_money</mat-icon>
         <mat-hint>Hint</mat-hint>
       </mat-form-field>
+      <mat-form-field>
+        <mat-label>Choose a date</mat-label>
+        <input matInput [matDatepicker]="picker" name="publisheddate" ngModel>
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <mat-slide-toggle name="isPublished" placeholder="Language" ngModel>Is book Published</mat-slide-toggle>
       <button type="submit" mat-raised-button color="primary">Save</button>
-    <!-- <input type="text" name="title" placeholder="Title" ngModel><br><br>
-    <input type="text" name="author" placeholder="Author" ngModel><br><br>
-    <input type="number" name="pages" placeholder="Book Page" ngModel><br><br>
-    <input type="text" name="language" placeholder="Language" ngModel><br><br>
-    <input type="number" name="price" placeholder="price" ngModel><br><br>
-    <button type="submit">Save</button> -->
-
-   <!-- <h1>{{myForm.value| json}}</h1> -->
 </form>
 

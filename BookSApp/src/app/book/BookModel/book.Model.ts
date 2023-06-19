@@ -10,7 +10,9 @@ export class BookModel
    public link!: string;
    public pages!:number;
    public title !:string;
-   public year !:number
-   public price !: PriceModel
+   public year !:number;
+   public price !: PriceModel;
+   public isPublished !: boolean;
+   public publisheddate !:Date;
     
 }

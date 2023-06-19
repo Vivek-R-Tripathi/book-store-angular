@@ -20,7 +20,9 @@ export class BookService {  //export means it shd be ready to use for import in 
      "price": {
         "currency":"USDoller",
         "value" : 29
-     }
+     },
+     "isPublished":true,
+     "publisheddate": new Date()
   },
   {
     "id": 2,
@@ -35,8 +37,9 @@ export class BookService {  //export means it shd be ready to use for import in 
      "price": {
         "currency":"INR",
         "value" : 29
-     }
-
+     },
+     "isPublished":true,
+     "publisheddate": new Date()
   },
   {
     "id":3,
@@ -51,7 +54,9 @@ export class BookService {  //export means it shd be ready to use for import in 
     "price": {
       "currency":"Diram",
       "value" : 559
-   }
+   },
+   "isPublished":true,
+   "publisheddate": new Date()
   },
   {
     "id":4,
@@ -66,7 +71,9 @@ export class BookService {  //export means it shd be ready to use for import in 
     "price": {
       "currency":"KEN",
       "value" : 21
-   }
+   },
+   "isPublished":true,
+   "publisheddate": new Date()
   },
   {
     "id":5,
@@ -81,7 +88,9 @@ export class BookService {  //export means it shd be ready to use for import in 
     "price": {
       "currency":"African",
       "value" : 121
-   }
+   },
+   "isPublished":true,
+   "publisheddate": new Date()
   },
   {
     "id":6,
@@ -96,7 +105,9 @@ export class BookService {  //export means it shd be ready to use for import in 
     "price": {
       "currency":"INR",
       "value" : 21
-   }
+   },
+   "isPublished":true,
+   "publisheddate": new Date()
   }];
   constructor() { }
 
@@ -127,7 +138,9 @@ addBooks(bookModel:BookModel): void
       "price": {
         "currency":"INR",
         "value" : 21
-     }
+     },
+     "isPublished":true,
+     "publisheddate": new Date()
     }, {
       "id": 2,
       "author": "Chunnu Tripathi",
@@ -141,7 +154,9 @@ addBooks(bookModel:BookModel): void
        "price": {
           "currency":"INR",
           "value" : 29
-       }
+       },
+       "isPublished":true,
+       "publisheddate": new Date()
 
     }];
   }

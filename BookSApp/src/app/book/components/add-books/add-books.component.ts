@@ -28,7 +28,9 @@ export class AddBooksComponent {
         currency: "$",
         value:bookModel.price
 
-      }
+      };
+      book.isPublished = bookModel.isPublished;
+      book.publisheddate = bookModel.publisheddate;
     
    this.bookService.addBooks(book);
    console.log(bookModel);
