@@ -23,8 +23,8 @@ export class AddBooksComponent implements OnInit{
   }
   ngOnInit(): void {
     this.model = new BookModel();
-    this.model.author ='Book';
-    this.model.title = 'The Psycology of Money';
+    //this.model.author ='Book';
+    //this.model.title = 'The Psycology of Money';
     this.model.pages = 100;
     this.model.language ='Hindi';
     this.model.price = {value:20,currency:'USD'};
