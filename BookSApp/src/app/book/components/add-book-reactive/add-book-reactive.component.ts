@@ -34,6 +34,13 @@ export class AddBookReactiveComponent implements OnInit {
   ngOnInit(): void {
     this.formInit();
     console.log(this.formObj.get('title'));
+
+    // I have one requirement where i need to see the whatever i am typing in the input need to 
+    //captured in ts file use can use the below concept.
+    const titleObj=this.formObj.get('title');
+    titleObj?.valueChanges.subscribe((x)=>{
+      console.log(x);
+    })
   }
 
   private formInit():void{
