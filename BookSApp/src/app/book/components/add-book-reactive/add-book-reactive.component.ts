@@ -33,6 +33,7 @@ export class AddBookReactiveComponent implements OnInit {
   }
   ngOnInit(): void {
     this.formInit();
+    console.log(this.formObj.get('title'));
   }
 
   private formInit():void{

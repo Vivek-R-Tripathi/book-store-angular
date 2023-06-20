@@ -5,7 +5,10 @@
         <mat-label>Title</mat-label>
         <input matInput name="title" placeholder="Title" formControlName="title">
         <mat-icon matSuffix>title</mat-icon>
-        <mat-hint>hint</mat-hint>
+        <mat-hint *ngIf="formObj.get('title')?.invalid && formObj.get('title')?.touched">
+          <span *ngIf="formObj.get('title')?.errors?.['required']">Please enter title of the book</span> 
+          <span *ngIf="formObj.get('title')?.errors?.['minlength']">Minimum lenght is 10</span>
+      </mat-hint>
 
       </mat-form-field>
       <mat-form-field appearance="fill">
