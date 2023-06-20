@@ -2,6 +2,7 @@ import { AfterViewChecked, Component, ElementRef, OnInit, ViewChild } from '@ang
 import { BookService } from '../../services/book.service';
 import { BookModel } from '../../BookModel/book.Model';
 import { PriceModel } from '../../BookModel/price.Model';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-add-books',
@@ -13,6 +14,9 @@ export class AddBooksComponent implements OnInit{
   /**
    *
    */
+
+  @ViewChild('myForm')
+  myform!: NgForm;
   public model!: BookModel;
   constructor(private bookService:BookService) {
     
@@ -51,8 +55,14 @@ export class AddBooksComponent implements OnInit{
       };
       book.isPublished = bookModel.isPublished;
       book.publisheddate = bookModel.publisheddate;
+
+      if(this.myform.valid){
     
    this.bookService.addBooks(book);
+      }
+      else{
+        alert('Invalid form');
+      }
    console.log(bookModel);
 
   }
