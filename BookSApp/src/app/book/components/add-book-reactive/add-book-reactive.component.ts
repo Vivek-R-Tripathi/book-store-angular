@@ -16,6 +16,12 @@ export class AddBookReactiveComponent implements OnInit {
     {value: 300, viewValue: '$ 300'},
   ];
 
+  currencies: any[] = [
+    {value: 'USD', viewValue: 'US Dollar'},
+    {value: 'INR', viewValue: 'Indian Rupee'},
+    
+  ];
+
   public formObj!: FormGroup;
 
   /**
@@ -35,14 +41,16 @@ export class AddBookReactiveComponent implements OnInit {
       author: new FormControl(),
       pages: new FormControl(),
       language: new FormControl(),
-      price: new FormControl(),
+      price: new FormGroup({
+        value:new FormControl(),
+        currency:new FormControl()
+      }),
       isPublished: new FormControl(),
       publisheddate: new FormControl()
     });
   
   }
   saveBook():void{
-   
     console.log(this.formObj);
    this.bookService.addBooks(this.formObj.value);
 
