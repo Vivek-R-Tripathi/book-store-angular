@@ -49,11 +49,11 @@ export class AddBookReactiveComponent implements OnInit {
 
   private validateControl(titleControl: FormControl):void{
     this.errorMessage='';
-    if(titleControl.errors &&(titleControl.touched ||titleControl.dirty)){
+    if(titleControl.errors && (titleControl.touched ||titleControl.dirty)){
       if(titleControl.errors['required']){
         this.errorMessage='Please enter valid title';
       }
-      else if(titleControl.errors['required']){
+      else if(titleControl.errors['minlength']){
         this.errorMessage='Minimum length shd be 1 to 10';
       }
     }
