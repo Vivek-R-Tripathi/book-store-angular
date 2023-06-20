@@ -1,0 +1,47 @@
+<h1>Add new book reactive</h1>
+<form class="form_class"[formGroup]="formObj"(ngSubmit)="saveBook()">
+    <mat-form-field appearance="fill">
+        <mat-label>Title</mat-label>
+        <input matInput name="title" placeholder="Title" formControlName="title">
+        <mat-icon matSuffix>title</mat-icon>
+        <mat-hint>hint</mat-hint>
+
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Author Name</mat-label>
+        <input matInput name="author" placeholder="Author" formControlName="author">
+        <mat-icon matSuffix>badge</mat-icon>
+        <mat-hint>hint</mat-hint>
+        <!-- <mat-hint>Hint</mat-hint> -->
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Page Number</mat-label>
+        <input matInput type="number" name="pages" placeholder="Page Number" formControlName="pages">
+        <mat-icon matSuffix>123</mat-icon>
+        <mat-hint>hint</mat-hint>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Language</mat-label>
+        <input matInput name="language" placeholder="Language" formControlName="language">
+        <mat-icon matSuffix>language</mat-icon>
+        <!-- <mat-hint>Hint</mat-hint> -->
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Price</mat-label>
+        <mat-select name="price" placeholder="Price" formControlName="price">
+            <mat-option *ngFor="let price of prices" [value]="price.value" >
+                {{price.viewValue}}
+              </mat-option>
+          </mat-select>
+        <mat-icon matSuffix>attach_money</mat-icon>
+        <!-- <mat-hint>Hint</mat-hint> -->
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Choose a date</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="publisheddate">
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <mat-slide-toggle class="toggle" formControlName="isPublished">Is book Published</mat-slide-toggle>
+      <button mat-raised-button color="primary" type ="submit">Save</button>
+</form>
