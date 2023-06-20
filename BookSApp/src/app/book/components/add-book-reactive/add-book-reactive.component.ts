@@ -10,6 +10,8 @@ import { BookService } from '../../services/book.service';
 })
 export class AddBookReactiveComponent implements OnInit {
 
+  public errorMessage!: string;
+
   prices: any[] = [
     {value: 100, viewValue: '$ 100'},
     {value: 200, viewValue: '$ 200'},
@@ -40,9 +42,22 @@ export class AddBookReactiveComponent implements OnInit {
     const titleObj=this.formObj.get('title');
     titleObj?.valueChanges.subscribe((x)=>{
       console.log(x);
+      this.validateControl(titleObj as FormControl)
+
     })
   }
 
+  private validateControl(titleControl: FormControl):void{
+    this.errorMessage='';
+    if(titleControl.errors &&(titleControl.touched ||titleControl.dirty)){
+      if(titleControl.errors['required']){
+        this.errorMessage='Please enter valid title';
+      }
+      else if(titleControl.errors['required']){
+        this.errorMessage='Minimum length shd be 1 to 10';
+      }
+    }
+  }
   private formInit():void{
     this.formObj = new FormGroup({
       title:new FormControl('', [Validators.required,Validators.minLength(10)]),
