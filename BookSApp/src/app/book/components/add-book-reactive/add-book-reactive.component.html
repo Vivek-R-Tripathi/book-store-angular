@@ -1,4 +1,5 @@
 <h1>Add new book reactive</h1>
+<button (click)="UpdateFormValue()">UpdateFormValue</button>
 <form class="form_class"[formGroup]="formObj"(ngSubmit)="saveBook()">
     <mat-form-field appearance="fill">
         <mat-label>Title</mat-label>

@@ -55,5 +55,13 @@ export class AddBookReactiveComponent implements OnInit {
    this.bookService.addBooks(this.formObj.value);
 
   }
+
+  UpdateFormValue():void{
+    //this patchvalue(it update partial form object) and setValue(it update full formobject) is use for update reactive form field
+    this.formObj.patchValue({
+      title:'VIVEK',
+      author:'shakespear'
+    })
+  }
    
 }
