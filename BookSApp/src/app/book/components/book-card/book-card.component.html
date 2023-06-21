@@ -19,7 +19,7 @@
             Price: {{bookDetail.price.value +' '+bookDetail.price.currency }}
           </p>
           <p>
-            IsPublished: {{bookDetail.isPublished}}
+            IsPublished: {{bookDetail.isPublished | boolPipe}}
           </p>
           <p>
             Published Date {{bookDetail.publisheddate}}

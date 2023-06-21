@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { BookModel } from '../../BookModel/book.Model';
 import { BookService } from '../../services/book.service';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
@@ -30,13 +30,15 @@ export class AddBookReactiveComponent implements OnInit {
   /**
    *
    */
-  constructor(private bookService:BookService) {
+  constructor(private bookService:BookService, private formBuilder:FormBuilder) {
   
     
   }
   ngOnInit(): void {
     this.formInit();
     console.log(this.formObj.get('title'));
+
+    console.log(this.formObj);
 
     // I have one requirement where i need to see the whatever i am typing in the input need to 
     //captured in ts file use can use the below concept.
@@ -55,6 +57,9 @@ export class AddBookReactiveComponent implements OnInit {
     })
   }
 
+  public get authors() {
+   return <FormArray>this.formObj.get('authors')
+  }
   private formatTypeChange(formatType:string):void{
     const pdfControl = this.formObj.get('pdfType');
     const docControl = this.formObj.get('docType');
@@ -87,26 +92,52 @@ export class AddBookReactiveComponent implements OnInit {
     }
   }
   private formInit():void{
-    this.formObj = new FormGroup({
-      title:new FormControl('', [Validators.required,Validators.minLength(10)]),
-      author: new FormControl(),
-      pages: new FormControl(),
-      language: new FormControl(),
-      price: new FormGroup({
-        value:new FormControl(),
-        currency:new FormControl()
+    this.formObj = this.formBuilder.group({
+      title: ['this is my title', Validators.required],
+     // author:'',
+      pages: '',
+      language: '',
+      price: this.formBuilder.group({
+        value: '',
+        currency:''
       }),
-      isPublished: new FormControl(),
-      publisheddate: new FormControl(),
-      formatType:new FormControl(),
-      pdfType: new FormControl(),
-      docType: new FormControl()
+      isPublished: '',
+      publisheddate: '',
+      formatType:'',
+      pdfType: '',
+      docType: '',
+      authors: this.formBuilder.array([
+        this.getAuthorControl(), this.getAuthorControl()
+      ])
     });
   
   }
+
+  public AddMore(){
+  this.authors.push(this.getAuthorControl())
+  }
+
+  public RemoveAuthor(i:number)
+  {
+    this.authors.removeAt(i)
+  }
+
+  private getAuthorControl(): FormGroup{
+
+     return this.formBuilder.group({
+      fullName: ''
+    });
+  }
   saveBook():void{
     console.log(this.formObj);
-   this.bookService.addBooks(this.formObj.value);
+   this.bookService.addBooks(this.formObj.value).subscribe((data)=>{
+
+    console.log(data, 'Save Data');
+    // if(data != null){
+    //  alert("Data added successfully")
+    // }
+     
+   });
 
   }
 

@@ -14,5 +14,6 @@ export class BookModel
    public price !: PriceModel;
    public isPublished !: boolean;
    public publisheddate !:Date;
+   public authors!: string[];
     
 }
