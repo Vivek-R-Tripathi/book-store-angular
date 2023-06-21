@@ -14,7 +14,7 @@ const routes= [ { path: '', component: AllBooksComponent },
 // Paramter routing
 { path: 'recent', component: RecentbookComponent },
 { path: 'book-details/:id', component: BookDetailsComponent },
-{ path: 'new', component: AddBooksComponent },
+{ path: 'new', component: AddBooksComponent ,title:'Add new book' },
 { path: 'new-reactive', component: AddBookReactiveComponent  }];
 
 
