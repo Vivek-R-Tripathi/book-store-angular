@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { BookModel } from '../../BookModel/book.Model';
 import { BookService } from '../../services/book.service';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
 @Component({
   selector: 'app-add-book-reactive',
@@ -45,6 +46,32 @@ export class AddBookReactiveComponent implements OnInit {
       this.validateControl(titleObj as FormControl)
 
     })
+
+    const titleControl=this.formObj.get('formatType');
+    titleControl?.valueChanges.subscribe((x)=>{
+      console.log(x);
+      this.formatTypeChange(x);
+
+    })
+  }
+
+  private formatTypeChange(formatType:string):void{
+    const pdfControl = this.formObj.get('pdfType');
+    const docControl = this.formObj.get('docType');
+
+    if(formatType==='pdf')
+    {
+       pdfControl?.addValidators(Validators.required);
+       docControl?.clearValidators();
+    }
+    else if(formatType==='doc')
+    {
+      docControl?.addValidators(Validators.required);
+      pdfControl?.clearValidators();
+    }
+
+   pdfControl?.updateValueAndValidity();
+    docControl?.updateValueAndValidity();
   }
 
   private validateControl(titleControl: FormControl):void{
@@ -56,6 +83,7 @@ export class AddBookReactiveComponent implements OnInit {
       else if(titleControl.errors['minlength']){
         this.errorMessage='Minimum length shd be 1 to 10';
       }
+
     }
   }
   private formInit():void{
@@ -69,7 +97,10 @@ export class AddBookReactiveComponent implements OnInit {
         currency:new FormControl()
       }),
       isPublished: new FormControl(),
-      publisheddate: new FormControl()
+      publisheddate: new FormControl(),
+      formatType:new FormControl(),
+      pdfType: new FormControl(),
+      docType: new FormControl()
     });
   
   }

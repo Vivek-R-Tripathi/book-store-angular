@@ -1,6 +1,20 @@
 <h1>Add new book reactive</h1>
 <button (click)="UpdateFormValue()">UpdateFormValue</button>
 <form class="form_class"[formGroup]="formObj"(ngSubmit)="saveBook()">
+  <mat-radio-group aria-label="Select an option" class="radio_buttons" formControlName="formatType">
+    <mat-radio-button value="pdf">Pdf</mat-radio-button>
+    <mat-radio-button value="doc">Doc</mat-radio-button>
+  </mat-radio-group>
+  <mat-form-field appearance="fill">
+    <mat-label>Pdf Type</mat-label>
+    <input matInput name="pdf" placeholder="Pdf" formControlName="pdfType">
+    <mat-icon matSuffix>pdfType</mat-icon>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Doc Type</mat-label>
+    <input matInput name="doc" placeholder="Doc" formControlName="docType">
+    <mat-icon matSuffix>docType</mat-icon>
+  </mat-form-field>
     <mat-form-field appearance="fill">
         <mat-label>Title</mat-label>
         <input matInput name="title" placeholder="Title" formControlName="title">
